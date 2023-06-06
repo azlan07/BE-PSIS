@@ -17,7 +17,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   Skck.init(
     {
-      user_id: DataTypes.INTEGER,
       name: DataTypes.STRING,
       tempatLahir: DataTypes.STRING,
       tanggalLahir: DataTypes.DATE,

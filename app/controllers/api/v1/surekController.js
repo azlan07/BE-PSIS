@@ -1,31 +1,6 @@
 const surekService = require('../../../services/surekService')
 
 module.exports = {
-    async showSurek(req, res, next){
-        try{
-            await surekService.findSurek(req.params.id)
-            .then(({data}) => {
-                if(data == null || data == undefined || data == ''){
-                    return res.status(404).json({
-                        status: "FAIL",
-                        message: "Belum Ada Notifikasi"
-                    }) 
-                }else{
-                    res.status(200).json({
-                        status: "OK",
-                        data: data
-                    })
-                    next()
-                }
-            })
-        }catch(err){
-            return res.status(401).json({
-                status: "ERROR",
-                message: err.message
-            })
-        }
-    },
-
     async addSurekSkck(req, res){
         try{
             const now = new Date()
@@ -37,7 +12,6 @@ module.exports = {
             })
         }
     },
-
     async addSurekSktm(req, res){
         try{
             const now = new Date()
@@ -50,16 +24,71 @@ module.exports = {
         }
     },
 
-    async updateSurek(req, res){
-        try{
-            await surekService.updateSurek(req.params.id,{
-                status: "read"
-            })
-        }catch(err){
-            return res.status(401).json({
-                status: "ERROR",
-                message: err.message
-            })
+    async handleUpdateSurek(req, res) {
+        try {
+          const body = req.body;
+          const id = req.params.id;
+    
+          const surek = await surekService.update(id, body);
+    
+          res.status(201).json({
+            status: 'OK',
+            data: surek,
+          });
+        } catch (err) {
+          res.status(400).json({
+            status: 'FAIL',
+            messange: err.message,
+          });
         }
-    }
+      },
+    
+      async handleGetAllSurek(req, res) {
+        try {
+          const { data, count } = await surekService.getAll();
+    
+          res.status(201).json({
+            status: 'OK',
+            data: data,
+            count: count,
+          });
+        } catch (err) {
+          res.status(400).json({
+            status: 'FAIL',
+            message: err.message,
+          });
+        }
+      },
+      async handleGetByPk(req, res) {
+        try {
+          const id = req.params.id;
+          const surek = await surekService.getByPk(id);
+          res.status(201).json({
+            status: 'OK',
+            data: surek,
+          });
+        } catch (err) {
+          res.status(400).json({
+            status: 'FAIL',
+            message: err.message,
+          });
+        }
+      },
+    
+      async handleDeleteSurek(req, res) {
+        try {
+          const id = req.params.id;
+          await surekService.destroy(id);
+    
+          res.status(201).json({
+            status: 'OK',
+            message: 'surek successfully deleted',
+          });
+        } catch (err) {
+          res.status(400).json({
+            status: 'FAIL',
+            message: err.message,
+          });
+        }
+      },
 }

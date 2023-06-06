@@ -1,15 +1,26 @@
-const{Surek} = require('../models')
+const { Surek } = require('../models')
 
 module.exports = {
-    findByUser(id){
-        return Surek.findAll({where: {user_id : id}})
-    },
-    createSurek(reqArgs){
+    createSurek(reqArgs) {
         return Surek.create(reqArgs)
     },
-    updateSurek(id, reqArgs){
-        return Surek.update(reqArgs, {where: {
-            user_id: id
-        }})
-    }
+    update(id, body) {
+        return Surek.update(body, { where: { id } });
+    },
+
+    getAll() {
+        return Surek.findAll();
+    },
+
+    getTotalCount() {
+        return Surek.count();
+    },
+
+    getByPk(id) {
+        return Surek.findByPk(id);
+    },
+
+    destroy(id) {
+        return Surek.destroy({ where: { id } });
+    },
 }

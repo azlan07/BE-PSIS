@@ -206,8 +206,11 @@ apiRouter.get('/api/v1/kabas', controllers.api.v1.kabaController.handleGetAllKab
 apiRouter.get('/api/v1/kaba/:id', controllers.api.v1.kabaController.handleGetByPk);
 apiRouter.delete('/api/v1/kaba/:id', controllers.api.v1.kabaController.handleDeleteKaba);
 
-apiRouter.get('/surek/:id', controllers.api.v1.surekController.showSurek, controllers.api.v1.surekController.updateSurek)
-// apiRouter.post('/add-surek', controllers.api.v1.surekController.addSurek)
+//For Surek
+apiRouter.get('/api/v1/sureks', controllers.api.v1.surekController.handleGetAllSurek);
+apiRouter.put('/api/v1/surek/:id', controllers.api.v1.surekController.handleUpdateSurek);
+apiRouter.get('/api/v1/surek/:id', controllers.api.v1.surekController.handleGetByPk);
+apiRouter.delete('/api/v1/surek/:id', controllers.api.v1.surekController.handleDeleteSurek);
 
 //For Admin
 //List Users
