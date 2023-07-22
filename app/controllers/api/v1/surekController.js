@@ -24,6 +24,50 @@ module.exports = {
         }
     },
 
+    async handleUpdateSurekSelesai(req, res) {
+      try {
+        const body = req.body;
+        const id = req.params.id;
+        const status = 'selesai';
+    
+        body.status = status;
+    
+        const surek = await surekService.update(id, body);
+    
+        res.status(201).json({
+          status: 'OK',
+          data: surek,
+        });
+      } catch (err) {
+        res.status(400).json({
+          status: 'FAIL',
+          message: err.message,
+        });
+      }
+    },
+
+    async handleUpdateSurekGagal(req, res) {
+      try {
+        const body = req.body;
+        const id = req.params.id;
+        const status = 'gagal';
+    
+        body.status = status;
+    
+        const surek = await surekService.update(id, body);
+    
+        res.status(201).json({
+          status: 'OK',
+          data: surek,
+        });
+      } catch (err) {
+        res.status(400).json({
+          status: 'FAIL',
+          message: err.message,
+        });
+      }
+    },
+
     async handleUpdateSurek(req, res) {
         try {
           const body = req.body;

@@ -208,6 +208,10 @@ apiRouter.delete('/api/v1/kaba/:id', controllers.api.v1.kabaController.handleDel
 
 //For Surek
 apiRouter.get('/api/v1/sureks', controllers.api.v1.surekController.handleGetAllSurek);
+
+apiRouter.put('/api/v1/surekselesai/:id', controllers.api.v1.surekController.handleUpdateSurekSelesai);
+apiRouter.put('/api/v1/surekgagal/:id', controllers.api.v1.surekController.handleUpdateSurekGagal);
+
 apiRouter.put('/api/v1/surek/:id', controllers.api.v1.surekController.handleUpdateSurek);
 apiRouter.get('/api/v1/surek/:id', controllers.api.v1.surekController.handleGetByPk);
 apiRouter.delete('/api/v1/surek/:id', controllers.api.v1.surekController.handleDeleteSurek);
