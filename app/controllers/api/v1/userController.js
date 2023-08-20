@@ -1,4 +1,4 @@
-const authService = require('../../../services/authService');
+const authService = require("../../../services/authService");
 const userService = require("../../../services/userService")
 
 module.exports = {
@@ -29,7 +29,7 @@ module.exports = {
             const {data, count} = await userService.list(role);
             res.status(200).json({
                 status: "OK",
-                data: { users: data },
+                data: data,
                 total: { total: count },
             });
         } catch (err) {

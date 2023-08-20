@@ -1,18 +1,24 @@
 const authController = require('./authController');
 const userController = require('./userController');
-const skckController = require('./skckController');
 const sktmController = require('./sktmController');
 const laporController = require('./laporController');
 const kabaController = require('./kabaController');
 const surekController = require('./surekController');
+const pengajuanSurekController = require('./pengajuanSurekController');
+const pendudukController = require('./pendudukController');
+const transparansiController = require('./transparansiController');
+const fileSuratController = require('./fileSuratController');
 
 module.exports = {
     authController,
     userController,
-    skckController,
     sktmController,
     laporController,
     kabaController,
-    surekController
+    surekController,
+    pengajuanSurekController,
+    pendudukController,
+    transparansiController,
+    fileSuratController
 };
   

@@ -27,15 +27,6 @@ module.exports = {
       kelamin: {
         type: Sequelize.STRING
       },
-      tempatLahir: {
-        type: Sequelize.STRING
-      },
-      tanggalLahir: {
-        type: Sequelize.STRING
-      },
-      agama: {
-        type: Sequelize.STRING
-      },
       alamat: {
         type: Sequelize.STRING
       },

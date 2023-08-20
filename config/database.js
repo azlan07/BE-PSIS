@@ -1,74 +1,58 @@
-/** Destruct environment variable to get database configuration */
-const { DB_USERNAME = 'root', DB_PASSWORD = '', DB_HOST = '127.0.0.1', DB_NAME = 'psis' } = process.env;
+// Untuk Database MySQL
+const { DB_USERNAME = 'root', DB_PASSWORD = '', DB_HOST = 'localhost', DB_NAME = 'psis' } = process.env;
 
 module.exports = {
   development: {
     username: DB_USERNAME,
     password: DB_PASSWORD,
-    database: `${DB_NAME}`,
+    database: DB_NAME,
     host: DB_HOST,
-    dialect: 'postgres',
+    dialect: 'mysql', // Ubah nilai dialect menjadi 'mysql'
+    // Jika menggunakan 'mysql', Anda dapat menambahkan properti tambahan jika diperlukan seperti port, timezone, dll.
+    // port: 3306,
+    // timezone: '+00:00',
   },
   test: {
     username: DB_USERNAME,
     password: DB_PASSWORD,
-    database: `${DB_NAME}`,
+    database: DB_NAME,
     host: DB_HOST,
-    dialect: 'postgres',
+    dialect: 'mysql', // Ubah nilai dialect menjadi 'mysql'
   },
   production: {
     username: DB_USERNAME,
     password: DB_PASSWORD,
-    database: `${DB_NAME}`,
+    database: DB_NAME,
     host: DB_HOST,
-    dialect: 'postgres',
+    dialect: 'mysql', // Ubah nilai dialect menjadi 'mysql'
   },
 };
 
 
-// const Sequelize = require("sequelize");
-
-// /** Destruct environment variable to get database configuration */
-// const {
-//   DB_USERNAME = "postgres",
-//   DB_PASSWORD = "ExdiV7SDWJkavgc63hcL",
-//   DB_HOST = "containers-us-west-59.railway.app",
-//   DB_NAME = "railway",
-//   DB_PORT = "8014",
-//   DB_URL = "postgresql://postgres:ExdiV7SDWJkavgc63hcL@containers-us-west-59.railway.app:8014/railway",
-// } = process.env;
-
-// const db = new Sequelize(DB_URL, {
-//   define: {
-//     timestamps: false
-//   }
-// })
-
+// Untuk Database PostgreSQL
+/** Destruct environment variable to get database configuration */
+// const { DB_USERNAME = 'postgres', DB_PASSWORD = 'azlan', DB_HOST = '127.0.0.1', DB_NAME = 'psis' } = process.env;
 
 // module.exports = {
 //   development: {
 //     username: DB_USERNAME,
 //     password: DB_PASSWORD,
-//     database: DB_NAME,
+//     database: `${DB_NAME}`,
 //     host: DB_HOST,
-//     port: DB_PORT,
-//     dialect: "postgres",
+//     dialect: 'postgres',
 //   },
 //   test: {
 //     username: DB_USERNAME,
 //     password: DB_PASSWORD,
-//     database: DB_NAME,
+//     database: `${DB_NAME}`,
 //     host: DB_HOST,
-//     port: DB_PORT,
-//     dialect: "postgres",
+//     dialect: 'postgres',
 //   },
 //   production: {
 //     username: DB_USERNAME,
 //     password: DB_PASSWORD,
-//     database: DB_NAME,
+//     database: `${DB_NAME}`,
 //     host: DB_HOST,
-//     port: DB_PORT,
-//     dialect: "postgres",
+//     dialect: 'postgres',
 //   },
-//   db
 // };

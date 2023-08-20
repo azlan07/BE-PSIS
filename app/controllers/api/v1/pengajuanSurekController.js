@@ -1,17 +1,17 @@
-const sktmService = require('../../../services/sktmService');
+const pengajuanSurekService = require('../../../services/pengajuanSurekService');
 
 module.exports = {
-  async handleCreateSktm(req, res, linkKk, linkKtpAyah, linkKtpIbu) {
+  async handleCreatePengajuanSurek(req, res) {
     try {
-      req.body.imageKk = linkKk
-      req.body.imageKtpAyah = linkKtpAyah
-      req.body.imageKtpIbu = linkKtpIbu
+      const image = req.file;
       const body = req.body;
-      const sktm = await sktmService.create(body);
+      // console.log("image",image);
+      // console.log("body", body);
+      const pengajuanSurek = await pengajuanSurekService.create(body, image);
 
       res.status(201).json({
         status: 'OK',
-        data: sktm,
+        data: pengajuanSurek,
       });
     } catch (err) {
       res.status(400).json({
@@ -21,16 +21,16 @@ module.exports = {
     }
   },
 
-  async handleUpdateSktm(req, res) {
+  async handleUpdatePengajuansurek(req, res) {
     try {
       const body = req.body;
       const id = req.params.id;
 
-      const sktm = await sktmService.update(id, body);
+      const pengajuanSurek = await pengajuanSurekService.update(id, body);
 
       res.status(201).json({
         status: 'OK',
-        data: sktm,
+        data: pengajuanSurek,
       });
     } catch (err) {
       res.status(400).json({
@@ -40,9 +40,9 @@ module.exports = {
     }
   },
 
-  async handleGetAllSktm(req, res) {
+  async handleGetAllPengajuanSurek(req, res) {
     try {
-      const { data, count } = await sktmService.getAll();
+      const { data, count } = await pengajuanSurekService.getAll();
 
       res.status(201).json({
         status: 'OK',
@@ -56,13 +56,13 @@ module.exports = {
       });
     }
   },
-  async handleGetByPk(req, res) {
+  async handleGetPengajuanSurekByPk(req, res) {
     try {
       const id = req.params.id;
-      const sktm = await sktmService.getByPk(id);
+      const pengajuanSurek = await pengajuanSurekService.getByPk(id);
       res.status(201).json({
         status: 'OK',
-        data: sktm,
+        data: pengajuanSurek,
       });
     } catch (err) {
       res.status(400).json({
@@ -72,14 +72,14 @@ module.exports = {
     }
   },
 
-  async handleDeleteSktm(req, res) {
+  async handleDeletePengajuanSurek(req, res) {
     try {
       const id = req.params.id;
-      await sktmService.destroy(id);
+      await pengajuanSurekService.destroy(id);
 
       res.status(201).json({
         status: 'OK',
-        message: 'skck successfully deleted',
+        message: 'pengajuan successfully deleted',
       });
     } catch (err) {
       res.status(400).json({

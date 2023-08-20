@@ -1,17 +1,14 @@
-const sktmService = require('../../../services/sktmService');
+const transparansiService = require('../../../services/transparansiService');
 
 module.exports = {
-  async handleCreateSktm(req, res, linkKk, linkKtpAyah, linkKtpIbu) {
+  async handleCreateTransparansi(req, res) {
     try {
-      req.body.imageKk = linkKk
-      req.body.imageKtpAyah = linkKtpAyah
-      req.body.imageKtpIbu = linkKtpIbu
       const body = req.body;
-      const sktm = await sktmService.create(body);
+      const transparansi = await transparansiService.create(body);
 
       res.status(201).json({
         status: 'OK',
-        data: sktm,
+        data: transparansi,
       });
     } catch (err) {
       res.status(400).json({
@@ -21,16 +18,16 @@ module.exports = {
     }
   },
 
-  async handleUpdateSktm(req, res) {
+  async handleUpdateTransparansi(req, res) {
     try {
       const body = req.body;
       const id = req.params.id;
 
-      const sktm = await sktmService.update(id, body);
+      const transparansi = await transparansiService.update(id, body);
 
       res.status(201).json({
         status: 'OK',
-        data: sktm,
+        data: transparansi,
       });
     } catch (err) {
       res.status(400).json({
@@ -40,9 +37,9 @@ module.exports = {
     }
   },
 
-  async handleGetAllSktm(req, res) {
+  async handleGetAllTransparansi(req, res) {
     try {
-      const { data, count } = await sktmService.getAll();
+      const { data, count } = await transparansiService.getAll();
 
       res.status(201).json({
         status: 'OK',
@@ -56,13 +53,13 @@ module.exports = {
       });
     }
   },
-  async handleGetByPk(req, res) {
+  async handleGetTransparansiByPk(req, res) {
     try {
       const id = req.params.id;
-      const sktm = await sktmService.getByPk(id);
+      const transparansi = await transparansiService.getByPk(id);
       res.status(201).json({
         status: 'OK',
-        data: sktm,
+        data: transparansi,
       });
     } catch (err) {
       res.status(400).json({
@@ -72,14 +69,14 @@ module.exports = {
     }
   },
 
-  async handleDeleteSktm(req, res) {
+  async handleDeleteTransparansi(req, res) {
     try {
       const id = req.params.id;
-      await sktmService.destroy(id);
+      await transparansiService.destroy(id);
 
       res.status(201).json({
         status: 'OK',
-        message: 'skck successfully deleted',
+        message: 'pengajuan successfully deleted',
       });
     } catch (err) {
       res.status(400).json({

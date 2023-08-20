@@ -1,16 +1,14 @@
-const skckService = require('../../../services/skckService');
+const fileSuratService = require('../../../services/fileSuratService');
 
 module.exports = {
-  async handleCreateSkck(req, res, linkKtp, linkKk) {
+  async handleCreateFileSurat(req, res) {
     try {
-      req.body.imageKtp = linkKtp
-      req.body.imageKk = linkKk
       const body = req.body;
-      const skck = await skckService.create(body);
+      const fileSurat = await fileSuratService.create(body);
 
       res.status(201).json({
         status: 'OK',
-        data: skck,
+        data: fileSurat,
       });
     } catch (err) {
       res.status(400).json({
@@ -20,16 +18,16 @@ module.exports = {
     }
   },
 
-  async handleUpdateSkck(req, res) {
+  async handleUpdateFileSurat(req, res) {
     try {
       const body = req.body;
       const id = req.params.id;
 
-      const skck = await skckService.update(id, body);
+      const fileSurat = await fileSuratService.update(id, body);
 
       res.status(201).json({
         status: 'OK',
-        data: skck,
+        data: fileSurat,
       });
     } catch (err) {
       res.status(400).json({
@@ -39,11 +37,11 @@ module.exports = {
     }
   },
 
-  async handleGetAllSkck(req, res) {
+  async handleGetAllFileSurat(req, res) {
     try {
-      const { data, count } = await skckService.getAll();
+      const { data, count } = await fileSuratService.getAll();
 
-      res.status(201).json({
+      res.status(200).json({
         status: 'OK',
         data: data,
         count: count,
@@ -55,13 +53,13 @@ module.exports = {
       });
     }
   },
-  async handleGetByPk(req, res) {
+  async handleGetFileSuratByPk(req, res) {
     try {
       const id = req.params.id;
-      const skck = await skckService.getByPk(id);
+      const fileSurat = await fileSuratService.getByPk(id);
       res.status(201).json({
         status: 'OK',
-        data: skck,
+        data: fileSurat,
       });
     } catch (err) {
       res.status(400).json({
@@ -71,14 +69,14 @@ module.exports = {
     }
   },
 
-  async handleDeleteSkck(req, res) {
+  async handleDeleteFileSurat(req, res) {
     try {
       const id = req.params.id;
-      await skckService.destroy(id);
+      await fileSuratService.destroy(id);
 
       res.status(201).json({
         status: 'OK',
-        message: 'skck successfully deleted',
+        message: 'file successfully deleted',
       });
     } catch (err) {
       res.status(400).json({

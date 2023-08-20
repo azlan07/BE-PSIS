@@ -18,9 +18,6 @@ module.exports = {
           message: "Gagal Upload File!",
         });
       }
-
-      // Assuming you want to use the returned Cloudinary URL in the create method,
-      // pass the 'result.url' value to the skckRepository.create() method
       body.image = result.url;
       return kabaRepository.create(body);
     });

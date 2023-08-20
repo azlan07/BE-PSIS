@@ -23,14 +23,24 @@ module.exports = {
       image: "https://res.cloudinary.com/doilg1m0l/image/upload/v1685183704/image/psis/mx70kweibmc5nuqry4sc.png",
       name: 'admin',
       kelamin: "pria",
-      tempatLahir: "padang",
-      tanggalLahir: "29-05-2023",
-      agama: "islam",
       alamat: "padang",
       telepon: "082377450000",
       createdAt: new Date(),
       updatedAt: new Date()
-    }]);
+    },
+    {
+      nik: "123456",
+      password: await authService.encryptPassword('123456'),
+      role : "wali",
+      image: "https://res.cloudinary.com/doilg1m0l/image/upload/v1685183704/image/psis/mx70kweibmc5nuqry4sc.png",
+      name: 'wali nagari',
+      kelamin: "pria",
+      alamat: "padang",
+      telepon: "082377450000",
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }
+  ]);
   },
 
   // Delete
