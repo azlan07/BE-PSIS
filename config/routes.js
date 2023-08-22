@@ -199,6 +199,40 @@ apiRouter.get('/api/v1/file-surat/:id', controllers.api.v1.fileSuratController.h
 apiRouter.delete('/api/v1/file-surat/:id', controllers.api.v1.fileSuratController.handleDeleteFileSurat);
 //--end--//
 
+//for-feedback
+//--start--//
+apiRouter.post('/api/v1/feedback', controllers.api.v1.feedbackController.handleCreateFeedback);
+apiRouter.put('/api/v1/feedback/:id', controllers.api.v1.feedbackController.handleUpdateFeedback);
+apiRouter.get('/api/v1/feedback', controllers.api.v1.feedbackController.handleGetAllFeedback);
+apiRouter.get('/api/v1/feedback/:id', controllers.api.v1.feedbackController.handleGetByPk);
+apiRouter.delete('/api/v1/feedback/:id', controllers.api.v1.feedbackController.handleDeleteFeedback);
+//--end--//
+
+//for-survey
+//--start--//
+apiRouter.post('/api/v1/survey', controllers.api.v1.surveyController.handleCreateSurvey);
+apiRouter.put('/api/v1/survey/:id', controllers.api.v1.surveyController.handleUpdateSurvey);
+apiRouter.get('/api/v1/survey', controllers.api.v1.surveyController.handleGetAllSurvey);
+apiRouter.get('/api/v1/survey/:id', controllers.api.v1.surveyController.handleGetByPk);
+apiRouter.delete('/api/v1/survey/:id', controllers.api.v1.surveyController.handleDeleteSurvey);
+//--end--//
+
+//for-pemilih-baru
+//--start--//
+apiRouter.post('/api/v1/pemilih-baru', cloudStorage.single('image_kk'),
+    async (req, res) => {
+        try {
+            await controllers.api.v1.pemilihBaruController.handleCreatePemilihBaru(req, res);
+        } catch (error) {
+            console.error('Error', error);
+            res.status(500).json({ error: 'Failed' });
+        }
+    });
+apiRouter.put('/api/v1/pemilih-baru/:id', controllers.api.v1.pemilihBaruController.handleUpdatePemilihBaru);
+apiRouter.get('/api/v1/pemilih-baru', controllers.api.v1.pemilihBaruController.handleGetAllPemilihBaru);
+apiRouter.get('/api/v1/pemilih-baru/:id', controllers.api.v1.pemilihBaruController.handleGetByPk);
+apiRouter.delete('/api/v1/pemilih-baru/:id', controllers.api.v1.pemilihBaruController.handleDeletePemilihBaru);
+//--end--//
 
 //For Admin
 //List Users

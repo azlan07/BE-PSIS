@@ -10,10 +10,15 @@ module.exports = {
                 type: Sequelize.INTEGER
             },
             tahun: {
-                allowNull: false,
                 type: Sequelize.STRING
             },
             file: {
+                type: Sequelize.STRING
+            },
+            jenis: {
+                type: Sequelize.STRING
+            },
+            keterangan: {
                 type: Sequelize.STRING
             },
             createdAt: {

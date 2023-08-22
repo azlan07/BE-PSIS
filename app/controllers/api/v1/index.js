@@ -8,6 +8,9 @@ const pengajuanSurekController = require('./pengajuanSurekController');
 const pendudukController = require('./pendudukController');
 const transparansiController = require('./transparansiController');
 const fileSuratController = require('./fileSuratController');
+const feedbackController = require('./feedbackController');
+const surveyController = require('./surveyController');
+const pemilihBaruController = require('./pemilihBaruController');
 
 module.exports = {
     authController,
@@ -19,6 +22,9 @@ module.exports = {
     pengajuanSurekController,
     pendudukController,
     transparansiController,
-    fileSuratController
+    fileSuratController,
+    feedbackController,
+    surveyController,
+    pemilihBaruController
 };
   
