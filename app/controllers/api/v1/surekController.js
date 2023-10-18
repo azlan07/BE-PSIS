@@ -58,11 +58,11 @@ module.exports = {
     }
   },
 
-  async handleUpdateSurekDiteruskan(req, res) {
+  async handleUpdateSurekDiproses(req, res) {
     try {
       const body = req.body;
       const id = req.params.id;
-      const status = 'diteruskan';
+      const status = 'diproses';
 
       body.status = status;
 

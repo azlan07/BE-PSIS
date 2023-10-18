@@ -146,7 +146,7 @@ apiRouter.delete('/api/v1/kaba/:id', controllers.api.v1.kabaController.handleDel
 //For Surek
 apiRouter.get('/api/v1/sureks', controllers.api.v1.surekController.handleGetAllSurek);
 apiRouter.put('/api/v1/surekdiperiksa/:id', controllers.api.v1.surekController.handleUpdateSurekDiperiksa);
-apiRouter.put('/api/v1/surekditeruskan/:id', controllers.api.v1.surekController.handleUpdateSurekDiteruskan);
+apiRouter.put('/api/v1/surekdiproses/:id', controllers.api.v1.surekController.handleUpdateSurekDiproses);
 apiRouter.put('/api/v1/surekselesai/:id', controllers.api.v1.surekController.handleUpdateSurekSelesai);
 apiRouter.put('/api/v1/surekgagal/:id', controllers.api.v1.surekController.handleUpdateSurekGagal);
 
@@ -236,7 +236,7 @@ apiRouter.delete('/api/v1/pemilih-baru/:id', controllers.api.v1.pemilihBaruContr
 
 //For Admin
 //List Users
-apiRouter.get('/api/v1/users', controllers.api.v1.authController.authorizeAdmin, controllers.api.v1.userController.list);
+apiRouter.get('/api/v1/users', controllers.api.v1.userController.list);
 //Delete User
 apiRouter.delete('/api/v1/users/:id', controllers.api.v1.authController.authorizeAdmin, controllers.api.v1.userController.destroy);
 

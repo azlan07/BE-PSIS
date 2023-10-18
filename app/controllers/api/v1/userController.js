@@ -5,10 +5,10 @@ module.exports = {
     async update(req,res){
         try {
             const image = req.file;
-            const password = await authService.encryptPassword (req.body.password);
+            // const password = await authService.encryptPassword (req.body.password);
             const body = req.body;
-            body.password = password;
-            const user = await userService.update(req.params.id, body, image, password, );
+            // body.password = password;
+            const user = await userService.update(req.params.id, body, image);
             const userUpdated = await userService.get(req.params.id)
             res.status(201).json({
                 status:"Update Success",
