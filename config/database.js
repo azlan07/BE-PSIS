@@ -1,5 +1,5 @@
 // Untuk Database MySQL
-const { DB_USERNAME = 'root', DB_PASSWORD = '', DB_HOST = 'localhost', DB_NAME = 'percobaan' } = process.env;
+const { DB_USERNAME = 'root', DB_PASSWORD = 'password', DB_HOST = 'localhost', DB_NAME = 'PSIS' } = process.env;
 
 module.exports = {
   development: {
